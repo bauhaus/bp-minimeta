@@ -9,10 +9,483 @@ Template: bp-default
 Tags: buddypress, one-column, grey, light, minimal, webfont
 */
 
+/* Import Droid Sans and Droif serif from Google Font Directory */
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold&subset=latin);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin);
 
 
 /* Inherit the default theme styles */
-@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css );
+/* @import url(../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css); */
 
 /* Inherit the default theme adminbar styles */
-@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );
+@import url(../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css);
+
+
+html {display: block;}
+
+
+/* > TYPO 
+-------------------------------------------------------------- */
+
+body {
+	font-family: "Droid Serif", Palatino, Georgia, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+#container {
+	font-size: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+
+h1 { font-size: 2em; margin-bottom: 0.5em; }
+h2 { font-size: 1.6em; margin-bottom: 0.5em; }
+h3 { font-size: 1.6em; margin-bottom: 2em; float: left;}
+h4 { font-size: 1.4em; margin-bottom: 0.5em; }
+h5 { font-size: 1.2em; margin-bottom: 0; }
+h6 { font-size: 1em; margin-bottom: 0; }
+
+a { 
+	font-family: "Droid Sans", Tahoma, sans-serif;
+	color: #2F8E9E;
+	text-decoration: none;
+ }
+a:hover, a:active { color: #9E3F2F;-webkit-transition: all 0.3s linear; }
+a:focus { outline: 1px dotted #ccc; }
+
+	/* 	current nav item is bold, has inverted color */
+.current a,
+.selected a {
+	font-weight: bold; 
+	color: #9E3F2F; 
+	border-bottom: 3px solid;
+	-webkit-transition: all 0.3s linear;
+}
+
+	/* current kontext also has inverted color */
+#item-header h2 a{color: #9E3F2F;-webkit-transition: all 0.3s linear;}
+
+.time-since, span.activity {
+	color: #888;
+}
+
+#blogs-list li .item-title {
+	font-size: 1.4em;
+}
+
+/* Hide Stuff
+-------------------------------------------------------------- */
+
+#header, #sidebar,
+body.groups div#item-actions,
+ul.item-list div.activity-header img.avatar,
+div#whats-new-avatar	 {
+	display: none;
+}
+
+
+/* General Layout (somehow based on 960.gs/24, but without import)
+-------------------------------------------------------------- */
+
+body {
+	background: transparent;
+	color: #555;
+	width: 950px;
+	padding: 5px 0;
+	margin: 0 auto;
+}
+	body.activity-permalink {
+		min-width: 940px;
+		max-width: 940px;
+	}
+
+div#container div#content div.padder {
+	margin-right: 0;
+}
+
+
+/* > Container
+-------------------------------------------------------------- */
+
+div#container {
+	position: relative;
+	width: 100%;
+	padding-top: 3em;
+	padding-bottom: 2em;
+	margin-left: 20px;
+	margin-right: 20px;
+	background: transparent;
+	overflow: hidden;
+}
+	body.activity-permalink div#container {
+		background: none;
+		border: none;
+	}
+
+
+/* > Content
+-------------------------------------------------------------- */
+
+div#content {
+	float: left;
+	width: 100%;
+}
+
+div#content .padder {
+}
+	div#content .left-menu {
+		float: left;
+		width: 170px;
+	}
+
+	div#content .main-column {
+		margin-left: 190px;
+	}
+
+
+/**
+ * The following are basic CSS styles to give BuddyPress pages their absolute basic formatting. */
+
+/***
+ * Navigation tabs
+ */
+div.item-list-tabs {
+    margin: 1em 0;
+    padding: 0;
+    overflow: hidden;
+    clear: both;
+    text-align: center;
+}
+
+div.item-list-tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 200%;
+}
+    div.item-list-tabs ul li {
+        float: left;
+        margin-right: 1em;
+    }
+        div.item-list-tabs#subnav ul li a {
+            border: none;
+            padding: 0;
+        }
+
+    div.item-list-tabs ul li.last { float: right; }
+
+/***
+ * Object Lists (groups/members/forums/blogs)
+ */
+
+ul.item-list {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+    ul.item-list li { position: relative; }
+    ul.item-list div.item-avatar {
+        float: left;
+    }
+
+    ul.item-list div.item {
+        margin-left: 65px;
+    }
+
+    ul.item-list div.action {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+    }
+
+.item-list li {
+	clear: both;
+	margin-bottom: 1.5em;
+	line-height: 1.5em;
+}
+
+#pag-top { padding-bottom: 2em; }
+#pag-top div { float: left; }
+
+/***
+ * Content Object Headers
+ */
+
+div#item-header {
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+    div#item-header div#item-header-avatar {
+        float: left;
+    }
+
+    div#item-header div#item-header-content {
+        float: left;
+        width: 590px;
+        margin-left: 20px;
+    }
+
+/***
+ * Activity Stream Post Form
+ */
+
+form#whats-new-form {
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+    form#whats-new-form #whats-new-avatar {
+        float: left;
+    }
+
+    form#whats-new-form h5 {
+        clear: none;
+        margin-left: 150px;
+    }
+
+    form#whats-new-form #whats-new-content {
+        margin: 0 140px;
+    }
+
+    form#whats-new-form #whats-new-textarea {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    form#whats-new-form textarea {
+        width: 100%;
+        height: 60px;
+        font-size: 1em;
+        font-family: inherit;
+        color: #fff;
+        border: none;
+        margin: 0;
+        padding: 10px;
+        background: #2F8E9E;
+    }
+
+    form#whats-new-form #whats-new-submit {
+        float: right;
+        margin: 0;
+    }
+
+    form#whats-new-form #whats-new-post-in-box {
+        float: left;
+        width: auto;
+    }
+
+/***
+ * Activity Stream Post Form
+ */
+
+ul.activity-list {
+    margin: 0;
+    padding: 0;
+}
+
+ul.activity-list li {
+    overflow: hidden;
+    padding: 20px 0;
+}
+    ul.activity-list li img.avatar {
+        float: left;
+        width: 60px;
+        height: 60px;
+    }
+
+    ul.activity-list li div.activity-content {
+        margin-left: 75px;
+    }
+
+    ul.activity-list li div.activity-comments {
+        margin: 15px 0 0 38px;
+    }
+        ul.activity-list li div.activity-comments ul li {
+            padding: 5px 0;
+        }
+
+        ul.activity-list li div.activity-comments img.avatar {
+            width: 25px;
+            height: 25px;
+        }
+
+        ul.activity-list li div.acomment-content, ul.activity-list li div.acomment-meta {
+            margin-left: 35px;
+        }
+
+    ul.activity-list li div.activity-inreplyto {
+        margin: 15px 0 0 75px;
+        font-size: 11px;
+    }
+
+/***
+ * Input Forms
+ */
+
+/* Activity comment forms */
+
+form.ac-form { display: none; } /* JS will show this */
+
+div.activity-comments form {
+    display: none;
+    margin: 10px 0 10px 33px;
+    padding: 8px;
+}
+
+    div.activity-comments div#message {
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+
+    div.activity-comments form.loading {
+        background-image: url( ../images/ajax-loader.gif );
+        background-position: 2% 95%;
+        background-repeat: no-repeat;
+    }
+
+    div.activity-comments form .ac-textarea {
+        padding: 8px;
+        border: 1px inset #ccc;
+        margin-bottom: 10px;
+    }
+        div.activity-comments form textarea {
+            width: 100%;
+            height: 60px;
+            border: none;
+            padding: 0;
+        }
+            div.activity-comments form input {
+                margin-top: 5px;
+            }
+
+    div.activity-comments form div.ac-reply-avatar {
+        float: left;
+    }
+
+    div.activity-comments form div.ac-reply-content {
+        margin-left: 25px;
+        padding-left: 15px;
+    }
+
+/* Standard Input Forms */
+
+form.standard-form label, form.standard-form span.label {
+    display: block;
+    margin: 15px 0 5px 0;
+}
+    form.standard-form div.checkbox label,
+    form.standard-form div.radio label {
+        font-weight: normal;
+        margin: 5px 0 0 0;
+    }
+
+    form.standard-form textarea {
+        width: 75%;
+        height: 120px;
+    }
+    
+    
+/* > Buttons
+-------------------------------------------------------------- */
+
+a.button, input[type=submit], input[type=button], input[type=reset],
+ul.button-nav li a, div.generic-button a {
+/* 	background: url( ../images/	 ) top left repeat-x; */
+	border: none;
+	padding: 3px 10px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	text-decoration: none;
+	color: #fff;
+	background: #2F8E9E;
+	font-size: 0.8em;
+	font-weight: normal;
+	vertical-align: bottom;
+	cursor: pointer;
+}
+	a.button:hover, a.button:focus, input[type=submit]:hover, input[type=button]:hover, input[type=reset]:hover,
+	ul.button-nav li a:hover, ul.button-nav li.current a,
+	div.generic-button a:hover {
+		border-color: #aaa;
+		color: #555;
+		outline: none;
+	}
+
+	/* Buttons that are disabled */
+	div.pending a, a.disabled {
+		background: #9E3F2F;
+		cursor: wait;
+	}
+	div.pending a:hover, a.disabled:hover { color: #9E3F2F; }
+	
+	/* cancel friendship */
+	div.friendship-button.is_friend a {
+		background: #9E3F2F;
+	}
+	div.friendship-button.is_friend a:hover, a.disabled:hover { background: #fff; color: #9E3F2F; }
+	
+	div.accept, div.reject {
+		float: left;
+		margin-left: 10px;
+	}
+
+ul.button-nav li {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+	ul.button-nav li.current a {
+		font-weight: bold;
+	}
+
+
+/* Send Invites Form */
+form#send-invite-form {
+    margin-top: 20px;
+}
+    div#invite-list {
+        height: 400px;
+        overflow: scroll;
+        padding: 5px;
+        width: 160px;
+        margin: 10px 0;
+    }
+
+/* Directory search forms */
+
+form.dir-form div.dir-search {
+    float: right;
+    margin: 0 0 25px 0;
+    line-height: 1.9em;
+}
+
+form.dir-form div.dir-search input[type="text"] {
+	font-size: 0.8em;
+	line-height: 1.5em;
+	position: relative;
+	top: 0.3em;
+}
+
+
+/*
+ END BUDDYPRESS DEFAULT
+ ----------------------
+*/
+ 
+/* overiding/stylign facestream and twitstream */
+
+.tweetstream_checkbox_container, .facestream_checkbox_container {
+background: none !important;
+border: none !important;
+color: inherit !important;
+float: left !important;
+font-size: 0.8em !important;
+font-weight: normal !important;
+padding: 0.2em 1em !important;
+width: auto !important;
+}
+ 
