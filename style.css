@@ -1,0 +1,18 @@
+/*
+Theme Name: BuddyPress MiniMeta
+Theme URI: http://example.org/themes/dusk/
+Description: Minimal Child theme for BuddyPress with Droid (aka "FF Meta") Webfont from Goodle's Font Directory.
+Version: 0.1
+Author: eins78.com
+Author URI: http://eins78.com/
+Template: bp-default
+Tags: buddypress, one-column, grey, light, minimal, webfont
+*/
+
+
+
+/* Inherit the default theme styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/default.css );
+
+/* Inherit the default theme adminbar styles */
+@import url( ../../plugins/buddypress/bp-themes/bp-default/_inc/css/adminbar.css );
